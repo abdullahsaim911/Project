@@ -25,15 +25,26 @@ $(document).ready(function() {
     };
 
     $('#fullName').on('input', () => validateField($('#fullName'), validations.fullName));
+
     $('#email').on('input', () => validateField($('#email'), validations.email));
+    
     $('#phone').on('input', () => validateField($('#phone'), validations.phone));
+    
     $('#address').on('input', () => validateField($('#address'), validations.address));
+    
     $('#city').on('input', () => validateField($('#city'), validations.city));
+    
     $('#postalCode').on('input', () => validateField($('#postalCode'), validations.postalCode));
+    
     $('#country').on('change', () => validateField($('#country'), validations.country));
+    
     $('#cardholder').on('input', () => validateField($('#cardholder'), validations.cardholder));
+    
     $('#cardNumber').on('input', () => validateField($('#cardNumber'), validations.cardNumber));
+    
+    
     $('#expiry').on('input', () => validateField($('#expiry'), validations.expiry));
+    
     $('#cvv').on('input', () => validateField($('#cvv'), validations.cvv));
     
     const creditCardFields = $('#creditCardFields');

@@ -1,0 +1,143 @@
+:root {
+    --primary-color: #3d4244;
+    --secondary-color: #828485;
+    --muted-text: #a8a8a8;
+    --light-bg: #fcfcfc;
+    --header-bg: #dfe7e9;
+    --card-bg: #ffffff;
+    --border-color: #ebebeb;
+    --focus-border: #d5e5ee;
+    --focus-bg: #e9f5fc;
+}
+
+body {
+    background-color: var(--light-bg) !important;
+    font-family: 'Tinos', serif;
+    color: #626262;
+}
+
+.main-header {
+    background-color: var(--header-bg);
+    padding: 1rem 0;
+}
+
+.logo img {
+    max-height: 40px;
+}
+
+.main-nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-footer {
+    background-color: #545454;
+    color: #cccccc;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.themed-progress-steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.themed-progress-steps li {
+    color: var(--muted-text);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+}
+
+.themed-progress-steps li.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom-color: var(--primary-color);
+}
+
+.themed-h2 {
+    font-family: 'Tinos', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.themed-card {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0 !important;
+    background-color: var(--card-bg) !important;
+}
+
+.themed-card .card-header,
+.themed-card .card-footer {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control, .form-select, .form-check-input {
+    font-family: 'Tinos', serif;
+    border-radius: 0 !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control:focus, .form-select:focus, .form-check-input:focus {
+    background-color: var(--focus-bg) !important;
+    border-color: var(--focus-border) !important;
+    box-shadow: none !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.form-control.is-invalid, .form-select.is-invalid {
+    border-color: #dc3545 !important; 
+}
+
+.form-control.is-valid, .form-select.is-valid {
+    border-color: #198754 !important; 
+}
+
+.btn-handyman {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.25rem;
+}
+
+.btn-handyman:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-handyman-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-handyman-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.payment-methods .invalid-feedback {
+    display: none; 
+}
