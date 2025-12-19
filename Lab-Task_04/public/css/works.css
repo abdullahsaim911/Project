@@ -1,0 +1,102 @@
+/* --- Works Page Specific Styles --- */
+
+.works-intro {
+    padding: 100px 0 60px;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+.intro-italic {
+    font-size: 24px;
+    font-style: italic;
+    color: #828485;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.container-project {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    padding: 80px 20px;
+    gap: 60px;
+}
+
+.project-entry {
+    border-bottom: 1px solid #eee;
+}
+
+.project-entry.alternate .container-project {
+    flex-direction: row-reverse;
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-image {
+    flex: 1.2;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-title {
+    font-size: 42px;
+    font-weight: 300;
+    color: #3d4244;
+    margin-bottom: 5px;
+}
+
+.project-subtitle {
+    color: #a8a8a8;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.project-desc {
+    margin-bottom: 40px;
+    color: #777;
+    overflow: hidden;
+}
+
+.project-details {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.project-details td {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #828485;
+}
+
+.project-details td:first-child {
+    font-weight: bold;
+    width: 150px;
+    color: #3d4244;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .container-project {
+        flex-direction: column !important;
+        padding: 40px 20px;
+    }
+
+    .project-text,
+    .project-image {
+        width: 100%;
+    }
+
+    .project-title {
+        font-size: 32px;
+    }
+}

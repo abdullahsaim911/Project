@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+
+    <%- include('partials/navbar', { page: 'about' }) %>
+
+        <main>
+            <section class="about-hero">
+                <div class="container">
+                    <h1>Few words about us</h1>
+                </div>
+            </section>
+
+            <section class="about-story">
+                <div class="container-about">
+                    <div class="story-col text-left">
+                        <h2>We know our job</h2>
+                        <h6>DONEC VEL PORTA SUSCIPIT</h6>
+                        <span class="dropcap">E</span>
+                        <p>Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus
+                            felis, malesuada ultricies. Curabitur et ligula. Ut eleifend, a ultricies porta eros.
+                            Vestibulum commodo volutpat.</p>
+                    </div>
+
+                    <div class="story-col image-center">
+                        <img src="/assets/home_handyman_pic.png" alt="Handyman portrait">
+                    </div>
+
+                    <div class="story-col text-right">
+                        <span class="dropcap">C</span>
+                        <p>Lorem ipsum dolor sit amet, elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
+                            mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.
+                            Sed non mauris vitae erat consequat auctor eu in elit.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quality-section">
+                <div class="container">
+                    <h2>We make best quality wooden parts</h2>
+                    <div class="stars">★★★★★</div>
+                    <p class="quality-p">Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
+                        ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat
+                        consequat auctor eu in elit.</p>
+                    <div class="separator">
+                        <img src="/assets/home_handyman_sep.png" alt="Separator">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-gallery">
+                <div class="container-gallery">
+                    <div class="gallery-item large">
+                        <img src="/assets/home_handyman_works2.jpg" alt="Workshop">
+                    </div>
+                    <div class="gallery-item content">
+                        <p>Juis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+                            Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat
+                            auctor eu in elit.</p>
+                    </div>
+                    <div class="gallery-item small">
+                        <img src="/assets/home_handyman_works1.jpg" alt="Detail">
+                    </div>
+                </div>
+            </section>
+
+            <section class="secondary-cta">
+                <div class="container">
+                    <h2>+61 (0) 7 9180 3458</h2>
+                    <p>Call us for free visit and pricing</p>
+                </div>
+            </section>
+        </main>
+
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>

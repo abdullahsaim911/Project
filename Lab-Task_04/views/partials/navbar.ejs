@@ -1,0 +1,25 @@
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/handyman.png">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/" class="<%= typeof page !== 'undefined' && page === 'home' ? 'active' : '' %>">Home</a>
+                </li>
+                <li><a href="/works"
+                        class="<%= typeof page !== 'undefined' && page === 'works' ? 'active' : '' %>">Works</a></li>
+                <li><a href="/about"
+                        class="<%= typeof page !== 'undefined' && page === 'about' ? 'active' : '' %>">About</a></li>
+                <li><a href="/contact"
+                        class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>">Contact us</a>
+                </li>
+                <li><a href="/shop"
+                        class="<%= typeof page !== 'undefined' && page === 'shop' ? 'active' : '' %>">Shop</a></li>
+                <li><a href="/admin" class="admin-link">Admin Panel</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <main>
+            <section class="shop-hero">
+                <div class="container">
+                    <h1>Our Shop</h1>
+                    <div class="separator"><img src="/assets/home_handyman_sep.png"></div>
+                </div>
+            </section>
+
+            <div class="container">
+                <form action="/shop" method="GET" class="filter-bar">
+                    <select name="category" onchange="this.form.submit()">
+                        <option value="">All Categories</option>
+                        <option value="Furniture" <%=selectedCategory==='Furniture' ? 'selected' : '' %>>Furniture
+                        </option>
+                        <option value="Chairs" <%=selectedCategory==='Chairs' ? 'selected' : '' %>>Chairs</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="product-grid">
+                    <% products.forEach(product=> { %>
+                        <div class="product-card">
+                            <img src="<%= product.image %>" alt="<%= product.name %>">
+                            <h3>
+                                <%= product.name %>
+                            </h3>
+                            <p class="price">$<%= product.price %>
+                            </p>
+                            <a href="#" class="cta-button">View Product</a>
+                        </div>
+                        <% }) %>
+                </div>
+
+                <div class="pagination">
+                    <% for(let i=1; i <=totalPages; i++) { %>
+                        <a href="/shop?page=<%= i %>&category=<%= selectedCategory %>"
+                            class="<%= currentPage === i ? 'active' : '' %>">
+                            <%= i %>
+                        </a>
+                        <% } %>
+                </div>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

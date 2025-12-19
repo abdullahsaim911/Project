@@ -1,0 +1,17 @@
+{
+  "name": "behandyman-express",
+  "version": "1.0.0",
+  "description": "E-commerce site converted to Express.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

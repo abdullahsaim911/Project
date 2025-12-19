@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+    <div class="admin-header">
+        <h1>
+            <%= editing ? 'Edit Product' : 'Add New Product' %>
+        </h1>
+        <a href="/admin" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <form action="/admin/<%= editing ? 'edit-product/' + product._id : 'add-product' %>" method="POST">
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" name="name" id="name" class="form-control" value="<%= editing ? product.name : '' %>"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" class="form-control" step="0.01"
+                value="<%= editing ? product.price : '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" class="form-control"
+                value="<%= editing ? product.category : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image URL</label>
+            <input type="text" name="image" id="image" class="form-control" value="<%= editing ? product.image : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="5"
+                class="form-control"><%= editing ? product.description : '' %></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                <%= editing ? 'Update Product' : 'Add Product' %>
+            </button>
+        </div>
+    </form>
+
+    <%- include('partials/footer') %>
