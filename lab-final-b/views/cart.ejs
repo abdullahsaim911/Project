@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <%- include('partials/head') %>
+        <style>
+            .cart-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            .cart-table th,
+            .cart-table td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+
+            .cart-table th {
+                background-color: #f2f2f2;
+            }
+
+            .cart-total {
+                text-align: right;
+                margin-top: 20px;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <main>
+            <section class="shop-hero">
+                <div class="container">
+                    <h1>Your Cart</h1>
+                    <div class="separator"><img src="/assets/home_handyman_sep.png"></div>
+                </div>
+            </section>
+
+            <div class="container">
+                <% if (products.length> 0) { %>
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(p=> { %>
+                                <tr>
+                                    <td>
+                                        <%= p.productData.name %>
+                                    </td>
+                                    <td>
+                                        <%= p.quantity %>
+                                    </td>
+                                    <td>$<%= p.productData.price * p.quantity %>
+                                    </td>
+                                    <td>
+                                        <form action="/cart/delete-item" method="POST">
+                                            <input type="hidden" name="productId" value="<%= p.productData._id %>">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                    <div class="cart-total">
+                        Total Price: $<%= totalPrice %>
+                    </div>
+                    <div style="text-align: right; margin-top: 20px;">
+                        <a href="/order/preview" class="btn" style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Order Now</a>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products in Cart!</h1>
+                        <% } %>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

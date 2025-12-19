@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <main class="container" style="margin-top: 50px; text-align: center;">
+            <h1>View Your Order History</h1>
+            <p>Please enter the email address you used to place your orders.</p>
+
+            <div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                <form action="/order/my-orders" method="POST">
+                    <div style="margin-bottom: 15px;">
+                        <input type="email" name="email" required placeholder="name@example.com"
+                            style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        View My Orders
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

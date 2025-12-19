@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <%- include('partials/head') %>
+        <style>
+            .order-success-container {
+                text-align: center;
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+            }
+
+            .success-icon {
+                color: #28a745;
+                font-size: 3em;
+                margin-bottom: 20px;
+            }
+
+            .order-details-box {
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: left;
+                margin-top: 30px;
+            }
+
+            .order-item {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #eee;
+                padding: 10px 0;
+            }
+
+            .order-item:last-child {
+                border-bottom: none;
+            }
+
+            .summary-total {
+                font-weight: bold;
+                margin-top: 20px;
+                text-align: right;
+                font-size: 1.2em;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <main class="order-success-container">
+            <div class="success-icon">✓</div>
+            <h1>Order Placed Successfully!</h1>
+            <p>Thank you for shopping with us.</p>
+
+            <div class="order-details-box">
+                <h3>Order Details</h3>
+                <p><strong>Order ID:</strong>
+                    <%= order._id %>
+                </p>
+                <p><strong>Status:</strong> <span style="color: #007bff;">
+                        <%= order.status %>
+                    </span></p>
+
+                <h4 style="margin-top: 20px;">Items</h4>
+                <% order.items.forEach(item=> { %>
+                    <div class="order-item">
+                        <span>
+                            <%= item.name %> (x<%= item.quantity %>)
+                        </span>
+                        <span>$<%= (item.price * item.quantity).toFixed(2) %></span>
+                    </div>
+                    <% }) %>
+
+                        <div class="summary-total">
+                            Total Amount: $<%= order.totalAmount.toFixed(2) %>
+                        </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <a href="/shop" class="cta-button">Continue Shopping</a>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

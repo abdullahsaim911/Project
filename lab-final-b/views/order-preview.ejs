@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main class="container">
+        <h1>Order Preview</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Individual Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(p => { %>
+                    <tr>
+                        <td><%= p.name %></td>
+                        <td><%= p.quantity %></td>
+                        <td>$<%= p.price %></td>
+                        <td>$<%= p.price * p.quantity %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px; padding: 15px; background: #f4f4f4; border: 1px solid #ddd; border-radius: 5px;">
+            <form action="/order/preview" method="GET" style="display: flex; gap: 10px; align-items: center;">
+                <label for="coupon">Have a Coupon?</label>
+                <input type="text" id="coupon" name="coupon" placeholder="Enter SAVE10" value="<%= couponCode %>" style="padding: 5px; border: 1px solid #ccc;">
+                <button type="submit" style="padding: 5px 15px; cursor: pointer;">Apply</button>
+            </form>
+        </div>
+
+        <div class="cart-total" style="text-align: right; margin-top: 20px;">
+            <p>Subtotal: <strong>$<%= subtotal %></strong></p>
+            
+            <% if (discount > 0) { %>
+                <p style="color: #d9534f;">Discount (10%): <strong>-$<%= discount.toFixed(2) %></strong></p>
+            <% } %>
+            
+            <hr style="width: 200px; margin-left: auto;">
+            <h3 style="font-size: 1.5em;">Grand Total: $<%= totalPrice.toFixed(2) %></h3>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: flex-end;">
+            <a href="/cart" class="btn btn-secondary" style="padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px;">Go Back to Cart</a>
+
+            <form action="/order/confirm" method="POST">
+                <input type="hidden" name="coupon" value="<%= couponCode %>">
+                <input type="email" name="email" required placeholder="your@email.com" 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <button type="submit" class="btn btn-success" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Confirm Order</button>
+            </form>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

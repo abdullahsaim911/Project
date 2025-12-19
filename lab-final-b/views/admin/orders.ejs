@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+    <div class="content">
+        <h2>Manage Orders</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(order=> { %>
+                    <tr>
+                        <td>
+                            <%= order._id %>
+                        </td>
+                        <td>
+                            <%= order.email %>
+                        </td>
+                        <td><strong>
+                                <%= order.status %>
+                            </strong></td>
+                        <td>
+                            <% if (order.status==='Placed' ) { %>
+                                <form action="/admin/update-status" method="POST">
+                                    <input type="hidden" name="orderId" value="<%= order._id %>">
+                                    <input type="hidden" name="nextStatus" value="Processing">
+                                    <button type="submit" class="btn btn-primary">Process Order</button>
+                                </form>
+                                <% } else if (order.status==='Processing' ) { %>
+                                    <form action="/admin/update-status" method="POST">
+                                        <input type="hidden" name="orderId" value="<%= order._id %>">
+                                        <input type="hidden" name="nextStatus" value="Delivered">
+                                        <button type="submit" class="btn btn-success">Mark Delivered</button>
+                                    </form>
+                                    <% } else { %>
+                                        <span>Complete</span>
+                                        <% } %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <%- include('partials/footer') %>
